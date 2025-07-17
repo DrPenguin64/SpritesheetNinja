@@ -60,7 +60,3 @@ for row in range(yN):
 
 print("Done!")
 input()
-# Open the sprite
-# Replace clear color
-# Chop accoridng to thing
-
