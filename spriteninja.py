@@ -21,6 +21,8 @@ def replace_color_with_transparency(i, target_color, tolerance=0):
 
 path = input("Spritesheet path:")
 
+
+
 raw = Image.open(path)
 width, height = raw.size
 
@@ -33,8 +35,11 @@ yOff = int(input("Y offset/gap between cells (pixels):"))
 topMargin = int(input("Margin from top (pixels):"))
 leftMargin = int(input("Margin from left (pixels):"))
 clearcolor = input("Hex of clear color (if multiple sep by comma, e.g. '#FFFFFF,#00aaff')")
-outputPath = input("Output folder name:")
-prefix = input("Output prefix:")
+
+#outputPath = input("Output folder name:")
+outputPath = path.replace(".png","") # default
+prefix = path.replace(".png","")
+#prefix = input("Output prefix:")
 
 # Replace transparency
 colors = clearcolor.split(",")
@@ -55,8 +60,12 @@ for row in range(yN):
 
             tile = img.crop((left, upper, right, lower))
             
-            tile.save(f"{outputPath}\{prefix}_{count}.png")
+            tile.save(f"{outputPath}\\{prefix}_{count}.png")
             count += 1
 
 print("Done!")
 input()
+# Open the sprite
+# Replace clear color
+# Chop accoridng to thing
+
