@@ -34,7 +34,7 @@ xOff = int( input("X offset/gap between cells (pixels):"))
 yOff = int(input("Y offset/gap between cells (pixels):"))
 topMargin = int(input("Margin from top (pixels):"))
 leftMargin = int(input("Margin from left (pixels):"))
-clearcolor = input("Hex of clear color (if multiple sep by comma, e.g. '#FFFFFF,#00aaff')")
+#clearcolor = input("Hex of clear color (if multiple sep by comma, e.g. '#FFFFFF,#00aaff')")
 
 #outputPath = input("Output folder name:")
 outputPath = path.replace(".png","") # default
@@ -42,12 +42,13 @@ prefix = path.replace(".png","")
 #prefix = input("Output prefix:")
 
 # Replace transparency
+'''
 colors = clearcolor.split(",")
 img = raw
 for c in colors:
     img = replace_color_with_transparency(img, hex_to_rgb(c))
-
-
+'''
+img = raw
 os.makedirs(outputPath, exist_ok=True)
 
 count = 0

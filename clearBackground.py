@@ -19,9 +19,21 @@ def replace_color_with_transparency(i, target_color, tolerance=0):
 
     return img
 
+#Try to load config
+colors = []
+try:
+    with open("clearBackground.config", "r") as f:
+        print("Using clear color from config file.")
+        colors = [line.strip() for line in f if line.strip()]
+except Exception as e:
+    print("Error: ", e)
+
+
+
 folderpath = input("Foldername (warning: will modify all pngs in the folder)")
-clearcolor = input("Hex of clear color (if multiple sep by comma, e.g. '#FFFFFF,#00aaff')")
-colors = clearcolor.split(",")
+if (len(colors) == 0):
+    clearcolor = input("Hex of clear color (if multiple sep by comma, e.g. '#FFFFFF,#00aaff')")
+    colors = clearcolor.split(",")
 rgbcolors = [hex_to_rgb(c) for c in colors]
 
 for filename in os.listdir(folderpath):
